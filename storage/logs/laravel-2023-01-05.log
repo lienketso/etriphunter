@@ -1,0 +1,8 @@
+[2023-01-05 08:38:22] production.INFO: Broadcasting [App\Events\PusherNotificationAdminEvent] on channels [admin-channel] with payload:
+{
+    "message": "tessssst was updated to Publish by Admin vendor",
+    "avatar": "<img class=\"image-responsive\" src=\"http:\/\/etrip.test:8000\/images\/avatar.png\" alt=\"Admin vendor\">",
+    "link": "http:\/\/etrip.test:8000\/admin\/module\/tour?id=22",
+    "idNotification": "a11725db-469b-420a-8d8c-b98203f9ee7d",
+    "socket": null
+}  
