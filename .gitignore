@@ -26,3 +26,4 @@ yarn-error.log
 composer.lock
 /storage/bc.php
 storage/framework
+storage/framework/views/*
