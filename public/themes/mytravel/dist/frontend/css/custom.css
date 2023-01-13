@@ -1,0 +1,19 @@
+.member-join-tour{
+    padding: 20px 0;
+}
+.item-member-tour{
+    padding: 20px;
+}
+.item-f-member{
+    padding-bottom: 10px;
+}
+.header-success{
+    position: relative;
+}
+
+.booking-id{
+    padding-top: 19px;
+}
+.booking-id strong span{
+    color: #007bff;
+}

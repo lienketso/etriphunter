@@ -14,7 +14,7 @@
                     <div class="col-left">
                         <form method="get" action="" class="filter-form filter-form-left d-flex flex-column flex-sm-row" role="search">
                             <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name')}}" class="form-control">
-                            <select name="cat_id" class="form-control">
+                            <select name="cat_id" class="form-control" id="cat_id">
                                 <option value="">{{ __('--All Category --')}} </option>
                                 <?php
                                 foreach ($tour_categories as $category) {

@@ -34,7 +34,7 @@
                     </div>
                 @else
                     <div class="">
-                        <select name="location_id" class="form-control">
+                        <select name="location_id" class="form-control" id="location_id">
                             <option value="">{{__("-- Please Select --")}}</option>
                             <?php
                             $traverse = function ($locations, $prefix = '') use (&$traverse, $row) {

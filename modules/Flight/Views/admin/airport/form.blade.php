@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label>{{__("Location")}}</label>
-    <select name="location_id" class="form-control">
+    <select name="location_id" class="form-control" id="location_id">
         <option value="">{{__("-- Please Select --")}}</option>
         <?php
         $traverse = function ($array, $prefix = '') use (&$traverse, $row) {

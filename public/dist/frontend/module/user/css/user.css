@@ -1593,17 +1593,14 @@
 .dates-calendar .fc-event.blocked-event .fc-title {
   background: #717171;
   color: white;
-    cursor: pointer;
 }
 .dates-calendar .fc-event.active-event .fc-title {
   background: #2c67b1;
   color: white;
-    cursor: pointer;
 }
 .dates-calendar .fc-event.full-book-event .fc-title {
   background: #e67e22;
   color: white;
-    cursor: pointer;
 }
 
 .modal-dialog-scrollable .modal-body {

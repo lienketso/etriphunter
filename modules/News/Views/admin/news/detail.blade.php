@@ -54,7 +54,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>{{  __('Category')}} </label>
-                                        <select name="cat_id" class="form-control">
+                                        <select name="cat_id" class="form-control" id="cat_id">
                                             <option value="">{{ __('-- Please Select --')}} </option>
                                             <?php
                                             $traverse = function ($categories, $prefix = '') use (&$traverse, $row) {

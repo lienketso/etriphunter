@@ -80,7 +80,7 @@
         </div>
             <div class="form-group">
                 <label class="control-label">Nhiều điểm đến</label>
-                <select multiple class="form-control dungdt-select2-field" name="muti_location[]">
+                <select multiple class="form-control dungdt-select2-field" name="muti_location[]" id="muti_location">
                         <?php
                                 $traverse = function ($locations, $prefix = '') use (&$traverse, $row,$arrLocation) {
                                     foreach ($locations as $location) {

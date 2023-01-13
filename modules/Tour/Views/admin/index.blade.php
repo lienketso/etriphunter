@@ -44,7 +44,7 @@
                             <div class="dropdown-menu px-3 py-3 dropdown-menu-right" aria-labelledby="dropdown_filters">
                                 <div class="mb-3">
                                     <label class="d-block" for="exampleInputEmail1">{{ __("Category") }}</label>
-                                    <select name="cate_id" class="form-control">
+                                    <select name="cate_id" class="form-control" id="cat_id">
                                         <option value="">{{ __('-- All Category --')}} </option>
                                         @foreach($tour_categories as $category)
                                             <option value="{{ $category->id }}" @if(Request()->cate_id == $category->id) selected @endif>{{ $category->name }}</option>

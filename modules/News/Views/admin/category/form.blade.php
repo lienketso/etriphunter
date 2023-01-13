@@ -5,7 +5,7 @@
 @if(is_default_lang())
 <div class="form-group">
     <label> {{ __('Parent')}}</label>
-    <select name="parent_id" class="form-control">
+    <select name="parent_id" class="form-control" id="parent_id">
         <option value=""> {{ __('-- Please Select --')}}</option>
         <?php
         $traverse = function ($categories, $prefix = '') use (&$traverse, $row) {

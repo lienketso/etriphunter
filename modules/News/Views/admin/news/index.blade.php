@@ -29,7 +29,7 @@
                 <form method="get" action="{{route('news.admin.index')}} " class="filter-form filter-form-right d-flex justify-content-end flex-column flex-sm-row" role="search">
                     <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name')}}"
                            class="form-control">
-                    <select name="cate_id" class="form-control">
+                    <select name="cate_id" class="form-control" id="cat_id">
                         <option value="">{{ __('--All Category --')}} </option>
                         <?php
                         if (!empty($categories)) {
