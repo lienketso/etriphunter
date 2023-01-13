@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label class="control-label">{{__("Category")}}</label>
                 <div class="">
-                    <select name="category_id" class="form-control">
+                    <select name="category_id" class="form-control" id="category_id">
                         <option value="">{{__("-- Please Select --")}}</option>
                         <?php
                         $traverse = function ($categories, $prefix = '') use (&$traverse, $row) {
@@ -36,6 +36,7 @@
                         $traverse($tour_category);
                         ?>
                     </select>
+
                 </div>
             </div>
 

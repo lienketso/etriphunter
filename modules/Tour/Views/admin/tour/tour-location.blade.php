@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label class="control-label">{{__("Starting Location")}}</label>
                 <div class="">
-                    <select name="start_location_id" class="form-control">
+                    <select name="start_location_id" class="form-control" id="start_location_id">
                         <option value="">{{__("-- Please Select --")}}</option>
                         <?php
                         $traverse = function ($locations, $prefix = '') use (&$traverse, $row) {
@@ -54,7 +54,7 @@
                     </div>
                 @else --}}
                     <div class="">
-                        <select name="location_id" class="form-control">
+                        <select name="location_id" class="form-control" id="location_id">
                             <option value="">{{__("-- Please Select --")}}</option>
                             <?php
                             $traverse = function ($locations, $prefix = '') use (&$traverse, $row) {
