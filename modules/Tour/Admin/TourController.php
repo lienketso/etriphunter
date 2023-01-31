@@ -206,6 +206,10 @@ class TourController extends AdminController
 
     public function store(Request $request, $id)
     {
+        $priceDefault = 0;
+        $persion = $request->input('person_types');
+        $priceDefault = $persion[0]['price'];
+
         if ($id > 0) {
             $this->checkPermission('tour_update');
             $row = $this->tourClass::find($id);
@@ -224,6 +228,7 @@ class TourController extends AdminController
         if ($request->input('slug')) {
             $row->slug = $request->input('slug');
         }
+        $row->price = $priceDefault;
         $row->ical_import_url = $request->ical_import_url;
         $row->create_user = $request->input('create_user');
         $row->default_state = $request->input('default_state', 1);

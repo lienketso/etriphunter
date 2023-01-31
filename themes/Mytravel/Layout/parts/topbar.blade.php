@@ -1,9 +1,23 @@
 <div class="bravo_topbar u-header__hide-content u-header__topbar u-header__topbar-lg border-bottom @if(!empty($is_home)|| !empty($header_transparent))border-color-white @else  border-color-8 @endif">
    <div class="{{$container_class ?? 'container'}}">
        <div class="d-flex align-items-center">
-           <div class="list-inline u-header__topbar-nav-divider mb-0 topbar_left_text font-size-14 @if(!empty($is_home)|| !empty($header_transparent)) @else  list-inline-dark @endif">
-               {!! setting_item_with_lang("topbar_left_text") !!}
-           </div>
+           <a href="{{url(app_get_locale(false,'/'))}}" class="bravo-logo navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white mr-0 mr-xl-5">
+               @if($logo_id = setting_item("logo_id"))
+                   <?php $logo = get_file_url($logo_id,'full') ?>
+                   <img src="{{$logo}}" alt="{{setting_item("site_title")}}">
+               @endif
+               <span class="u-header__navbar-brand-text">{{ setting_item_with_lang("logo_text") }}</span>
+           </a>
+           <a class="bravo-logo navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-on-scroll" href="{{url(app_get_locale(false,'/'))}}">
+               @if($logo_id = setting_item("logo_id_2"))
+                   <?php $logo = get_file_url($logo_id,'full') ?>
+                   <img src="{{$logo}}" alt="{{setting_item("site_title")}}">
+               @endif
+               <span class="u-header__navbar-brand-text">{{ setting_item_with_lang("logo_text") }}</span>
+           </a>
+{{--           <div class="list-inline u-header__topbar-nav-divider mb-0 topbar_left_text font-size-14 @if(!empty($is_home)|| !empty($header_transparent)) @else  list-inline-dark @endif">--}}
+{{--               {!! setting_item_with_lang("topbar_left_text") !!}--}}
+{{--           </div>--}}
            <div class="ml-auto d-flex align-items-center">
                <div class="d-flex align-items-center text-white px-3">
                    <i class="flaticon-phone-call mr-2 ml-1 font-size-18"></i>

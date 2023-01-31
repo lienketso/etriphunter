@@ -6852,7 +6852,7 @@ ul, ol {
   }
 }
 .bravo_wrap .bravo_header .content .header-left .bravo-menu {
-  padding-left: 20px;
+  padding-left: 0;
 }
 @media (max-width: 768px) {
   .bravo_wrap .bravo_header .content .header-left .bravo-menu {

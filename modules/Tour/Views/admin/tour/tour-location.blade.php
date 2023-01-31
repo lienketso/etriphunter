@@ -74,10 +74,10 @@
 
             </div>
         @endif
-        <div class="form-group">
-            <label class="control-label">{{__("Real tour address")}}</label>
-            <input type="text" name="address" id="customPlaceAddress" class="form-control" placeholder="{{__("Real tour address")}}" value="{{$translation->address}}">
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <label class="control-label">{{__("Real tour address")}}</label>--}}
+{{--            <input type="text" name="address" id="customPlaceAddress" class="form-control" placeholder="{{__("Real tour address")}}" value="{{$translation->address}}">--}}
+{{--        </div>--}}
             <div class="form-group">
                 <label class="control-label">Nhiều điểm đến</label>
                 <select multiple class="form-control dungdt-select2-field" name="muti_location[]" id="muti_location">

@@ -7,13 +7,13 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label">{{__("Price")}}</label>
-                        <input type="text" name="price" class="form-control" value="{{$row->price}}" placeholder="{{__("Tour Price")}}">
+                        <input type="text" name="price" disabled class="form-control" value="{{$row->price}}" placeholder="{{__("Tour Price")}}">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="control-label">{{__("Sale Price")}}</label>
-                        <input type="text" name="sale_price" class="form-control" value="{{$row->sale_price}}" placeholder="{{__("Tour Sale Price")}}">
+                        <label class="control-label">Giá Sale</label>
+                        <input type="text" name="sale_price" disabled class="form-control" value="{{$row->sale_price}}" placeholder="{{__("Tour Sale Price")}}">
                     </div>
                 </div>
                 <div class="col-lg-12">

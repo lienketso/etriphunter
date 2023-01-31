@@ -122,6 +122,7 @@
 <script type="text/javascript" src="{{ asset("libs/daterange/moment.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("libs/daterange/daterangepicker.min.js") }}"></script>
 <script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
+<script src="{{ asset('libs/select2/js/select2-config.js') }}" ></script>
 <script src="{{ asset('themes/mytravel/js/functions.js?_ver='.config('app.version')) }}"></script>
 <script src="{{asset('themes/mytravel/libs/custombox/custombox.min.js')}}"></script>
 <script src="{{asset('themes/mytravel/libs/custombox/custombox.legacy.min.js')}}"></script>

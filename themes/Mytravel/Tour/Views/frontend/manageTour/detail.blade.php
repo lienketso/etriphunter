@@ -20,7 +20,7 @@
                     @if(is_default_lang())
                         <a data-toggle="tab" href="#nav-tour-pricing" aria-selected="false">{{__("3. Pricing")}}</a>
                         <a data-toggle="tab" href="#nav-availability" aria-selected="false">{{__("4. Availability")}}</a>
-                        <a data-toggle="tab" href="#nav-attribute" aria-selected="false">{{__("5. Attributes")}}</a>
+{{--                        <a data-toggle="tab" href="#nav-attribute" aria-selected="false">{{__("5. Attributes")}}</a>--}}
                         <a data-toggle="tab" href="#nav-deposit" aria-selected="false">{{__("6. Deposit")}}</a>
                     @endif
                 </div>

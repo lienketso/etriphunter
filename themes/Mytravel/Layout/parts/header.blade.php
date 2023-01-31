@@ -12,20 +12,7 @@
             <div class="{{$container_class ?? 'container'}}">
                 <div class="content">
                     <div class="header-left">
-                        <a href="{{url(app_get_locale(false,'/'))}}" class="bravo-logo navbar-brand u-header__navbar-brand-default u-header__navbar-brand-center u-header__navbar-brand-text-white mr-0 mr-xl-5">
-                            @if($logo_id = setting_item("logo_id"))
-                                <?php $logo = get_file_url($logo_id,'full') ?>
-                                <img src="{{$logo}}" alt="{{setting_item("site_title")}}">
-                            @endif
-                            <span class="u-header__navbar-brand-text">{{ setting_item_with_lang("logo_text") }}</span>
-                        </a>
-                        <a class="bravo-logo navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-on-scroll" href="{{url(app_get_locale(false,'/'))}}">
-                            @if($logo_id = setting_item("logo_id_2"))
-                                <?php $logo = get_file_url($logo_id,'full') ?>
-                                <img src="{{$logo}}" alt="{{setting_item("site_title")}}">
-                            @endif
-                            <span class="u-header__navbar-brand-text">{{ setting_item_with_lang("logo_text") }}</span>
-                        </a>
+
                         <div class="bravo-menu">
                             <?php generate_menu('primary') ?>
                         </div>

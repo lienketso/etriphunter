@@ -185,6 +185,9 @@ class ManageTourController extends FrontendController
 
     public function store(Request $request, $id)
     {
+        $priceDefault = 0;
+        $persion = $request->input('person_types');
+        $priceDefault = $persion[0]['price'];
         if ($id > 0) {
             $this->checkPermission('tour_update');
             $row = $this->tourClass::find($id);
@@ -245,6 +248,7 @@ class ManageTourController extends FrontendController
         ], $request->input());
 //        $multiLocation = implode(',',$request->muti_location);
 //        $row->muti_location = $multiLocation;
+        $row->price = $priceDefault;
         $row->departure_day = getInputDatefomat($request->departure_day);
         $row->ical_import_url = $request->ical_import_url;
         $row->commission = json_encode($request->input('commission'));

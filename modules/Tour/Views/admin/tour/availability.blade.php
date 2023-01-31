@@ -1,12 +1,12 @@
 <div class="panel">
     <div class="panel-title"><strong>{{__("Availability")}}</strong></div>
     <div class="panel-body">
-        <h3 class="panel-body-title">{{__('Open Hours')}}</h3>
-        <div class="form-group">
-            <label>
-                <input type="checkbox" name="enable_open_hours" @if(!empty($row->meta->enable_open_hours)) checked @endif value="1"> {{__('Enable Open Hours')}}
-            </label>
-        </div>
+{{--        <h3 class="panel-body-title">{{__('Open Hours')}}</h3>--}}
+{{--        <div class="form-group">--}}
+{{--            <label>--}}
+{{--                <input type="checkbox" name="enable_open_hours" @if(!empty($row->meta->enable_open_hours)) checked @endif value="1"> {{__('Enable Open Hours')}}--}}
+{{--            </label>--}}
+{{--        </div>--}}
         <?php $old = $row->meta->open_hours ?? [];?>
         <div class="table-responsive form-group" data-condition="enable_open_hours:is(1)">
             <table class="table">
