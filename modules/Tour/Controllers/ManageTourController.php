@@ -253,6 +253,8 @@ class ManageTourController extends FrontendController
         $row->ical_import_url = $request->ical_import_url;
         $row->commission = json_encode($request->input('commission'));
         $row->company_id = $company_id;
+        $row->slots = $request->input('max_people');
+        $row->number_of_days = 0;
         $res = $row->saveOriginOrTranslation($request->input('lang'), true);
 
         if ($res) {

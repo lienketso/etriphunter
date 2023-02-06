@@ -1,3 +1,4 @@
+<input type='hidden' value='0' name='enable_deposit'>
 <div class="panel">
     <div class="panel-title"><strong>{{__("Pricing")}}</strong></div>
     <div class="panel-body">

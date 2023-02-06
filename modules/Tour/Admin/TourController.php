@@ -235,6 +235,8 @@ class TourController extends AdminController
         $row->enable_service_fee = $request->input('enable_service_fee');
         $row->service_fee = $request->input('service_fee');
         $row->commission = json_encode($request->input('commission'));
+        $row->slots = $request->input('max_people');
+        $row->number_of_days = 0;
         if(!is_null($request->input('departure_day'))){
             $row->departure_day = getInputDatefomat($request->input('departure_day'));
         }
