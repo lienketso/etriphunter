@@ -24,7 +24,8 @@
                                             <i class="icon {{ $module->getServiceIconFeatured() }} font-size-3"></i>
                                         </figure>
                                         <span class="tabtext mt-2 mt-md-0 font-weight-semi-bold">
-                                              {{ !empty($modelBlock["title_for_".$service_type]) ? $modelBlock["title_for_".$service_type] : $module->getModelName() }}
+                                              {{ !empty($modelBlock["title_for_".$service_type]) ? $modelBlock["title_for_".$service_type] : ($service_type=='event'?'Tiện ích':$module->getModelName()) }}
+
                                         </span>
                                     </div>
                                 </a>
