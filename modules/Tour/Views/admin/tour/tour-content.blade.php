@@ -45,7 +45,7 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="control-label">{{__("Slots")}}</label>
-                        <input type="number" name="max_people" class="form-control" min="0" value="{{$row->max_people}}" placeholder="{{__("Ex: 3")}}">
+                        <input type="number" name="max_people" class="form-control" min="0" value="{{($row->max_people) ? $row->max_people : 0}}" placeholder="{{__("Ex: 3")}}">
                         <i>Số chỗ còn nhận</i>
                     </div>
                 </div>
