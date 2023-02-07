@@ -107,6 +107,28 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="appy_all_modal" tabindex="-1" aria-labelledby="appy_all_modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kích hoạt nhanh</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="terms-scrollable" id="apply_multi_dates">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick="saveAllDates()">{{ __('Save changes') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script.head')
@@ -142,8 +164,35 @@
 				calendar.destroy();
             }
 			calendar = new FullCalendar.Calendar(calendarEl, {
+                header: {
+                    left: 'custom1',
+                    center: 'title',
+                    right: 'today ,prev,next'
+                },
+                customButtons: {
+                    custom1: {
+                        text: 'Kích hoạt nhanh',
+                        click: function() {
+                            var allEvent = calendar.getEvents();
+                            var html = '';
+                            var title = '';
+                            $.each(allEvent, function(key, value) {
+                                title = moment(value.start).format('YYYY-MM-DD') + ' - ' + value
+                                    .title;
+                                html += `<label class="term-item">
+                                        <input type="checkbox" name="terms[]" id="` + value.id + `" value='` + moment(
+                                    value.start).format('YYYY-MM-DD') + `'>
+                                        <span class="term-name">` + title + `</span>
+                                      </label>`
+                            });
+                            $('#apply_multi_dates').html(html);
+                            $('#appy_all_modal').modal('show');
+
+                        }
+                    }
+                },
 				plugins: [ 'dayGrid' ,'interaction'],
-				header: {},
+				// header: {},
 				selectable: true,
 				selectMirror: false,
 				allDay:false,
@@ -320,6 +369,39 @@
                 // $(this.$el).modal();
             }
         });
+        function saveAllDates() {
+            var allEvent = calendar.getEvents();
+            var selectedDates = $('#apply_multi_dates input:checked');
+            var index = selectedDates.length;
+            $.each(selectedDates, function(key, value) {
+                $.each(allEvent, function(key1, value1) {
 
+                    if (value.id == value1.id) {
+                        console.log(value1);
+                        var activeChild = {
+                            ...value1.extendedProps
+                        };
+                        activeChild.active = 1;
+                        console.log(activeChild);
+                        $.ajax({
+                            type: 'POST',
+                            url: "{{ route('car.admin.availability.store') }}",
+                            data: activeChild,
+                            success: function(data) {},
+                            error: function(data) {},
+                            complete: function(data) {
+                                index -= 1;
+                                console.log(index);
+                                if (index == 0) {
+                                    calendar.refetchEvents();
+                                    $('#appy_all_modal').modal('hide');
+                                }
+                            }
+                        });
+                    }
+
+                });
+            });
+        }
     </script>
 @endsection
