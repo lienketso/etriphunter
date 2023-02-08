@@ -25,5 +25,6 @@ yarn-error.log
 /storage/installed
 composer.lock
 /storage/bc.php
-storage/framework
+storage/framework/*
 storage/framework/views/*
+storage/framework/cache/*

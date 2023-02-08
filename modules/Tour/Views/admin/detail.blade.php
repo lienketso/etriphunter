@@ -52,6 +52,54 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="panel">
+                            <div class="panel-title"><strong>Loại khách sạn</strong></div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="terms-scrollable">
+                                            <label class="term-item">
+                                                <input name="cat_hotel" class="chk_hotel" value="1" type="checkbox" @if($row->cat_hotel==1) checked @endif>
+                                                <span class="term-name"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                            </label>
+                                            <label class="term-item">
+                                                <input name="cat_hotel" class="chk_hotel" value="2" type="checkbox" @if($row->cat_hotel==2) checked @endif>
+                                                <span class="term-name">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </span>
+                                            </label>
+                                            <label class="term-item">
+                                                <input name="cat_hotel" class="chk_hotel" value="3" type="checkbox" @if($row->cat_hotel==3) checked @endif>
+                                                <span class="term-name">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </span>
+                                            </label>
+                                            <label class="term-item">
+                                                <input name="cat_hotel" class="chk_hotel" value="4" type="checkbox" @if($row->cat_hotel==4) checked @endif>
+                                                <span class="term-name">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </span>
+                                            </label>
+                                            <label class="term-item">
+                                                <input name="cat_hotel" class="chk_hotel" value="5" type="checkbox" @if($row->cat_hotel==5) checked @endif>
+                                                <span class="term-name">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                </span>
+                                            </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         @if(is_default_lang())
                         <div class="panel">
                             <div class="panel-title"><strong>{{__("Author Setting")}}</strong></div>
@@ -159,5 +207,8 @@
                 }
             });
         })
+        $('input[name="cat_hotel"]').on('change', function() {
+        $('input[name="cat_hotel"]').not(this).prop('checked', false);
+});
     </script>
 @endsection
