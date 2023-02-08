@@ -82,9 +82,12 @@ class LocationController extends AdminController
         }
 
         $row->fill($request->input());
+
+
         if($request->input('slug')){
             $row->slug = $request->input('slug');
         }
+        $row->code = $request->input('code');
         $res = $row->saveOriginOrTranslation($request->input('lang'),true);
 
         if ($res) {

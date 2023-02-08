@@ -2,6 +2,9 @@
     <label>{{__("Name")}}</label>
     <input type="text" value="{{$translation->name}}" placeholder="{{__("Location name")}}" name="name" class="form-control">
 </div>
+<div class="form-group">
+    <input type="text" value="{{$row->code}}" placeholder="Mã địa điểm " name="code" class="form-control">
+</div>
 @if(is_default_lang())
     <div class="form-group">
         <label>{{__("Parent")}}</label>

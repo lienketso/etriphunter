@@ -43,6 +43,7 @@ class LocationController extends Controller
         $query = Location::select('bravo_locations.*', 'bravo_locations.name as title')->where("bravo_locations.status","publish");
         if ($search) {
             $query->where('bravo_locations.name', 'like', '%' . $search . '%');
+            $query->orWhere('bravo_locations.code', 'like', '%' . $search . '%');
 
             if( setting_item('site_enable_multi_lang') && setting_item('site_locale') != app()->getLocale() ){
                 $query->leftJoin('bravo_location_translations', function ($join) use ($search) {
@@ -61,7 +62,8 @@ class LocationController extends Controller
                 $translate = $location->translateOrOrigin(app()->getLocale());
                 $list_json[] = [
                     'id' => $location->id,
-                    'title' => $translate->name,
+                    'title' => is_null($location->code) ? $translate->name :  $translate->name . ' (' . $location->code . ')' ,
+                    'code'=>$location->code
                 ];
             }
             return $this->sendSuccess(['data'=>$list_json]);

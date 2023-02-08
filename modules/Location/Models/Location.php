@@ -18,6 +18,7 @@
         protected $fillable      = [
             'name',
             'content',
+            'codde',
             'image_id',
             'map_lat',
             'map_lng',
