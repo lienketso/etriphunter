@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,10 +15,11 @@ use Illuminate\Validation\Rule;
 class UsersImport implements ToModel, WithHeadingRow
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     * @throws ValidationException
+     */
     public function model(array $row)
     {
         $check = Validator::make($row,[
@@ -39,7 +41,9 @@ class UsersImport implements ToModel, WithHeadingRow
         ]);
 
         //xóa role nếu đã tồn tại
-        DB::table('core_model_has_roles')->where('model_id',$user->id)->delete();
+        if (!empty($user->id)) {
+            DB::table('core_model_has_roles')->where('model_id',$user->id)->delete();
+        }
         $role = Role::findById(2);
         $user->syncRoles($role);
         return $user;
