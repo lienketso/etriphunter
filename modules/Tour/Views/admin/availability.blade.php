@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="appy_all_modal" tabindex="-1" aria-labelledby="appy_all_modal" aria-hidden="true">
+    <div class="modal fade" id="apply_all_modal" tabindex="-1" aria-labelledby="apply_all_modal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -180,7 +180,7 @@
     <script src="{{ asset('libs/fullcalendar-4.2.0/daygrid/main.js') }}"></script>
 
     <script>
-        var calendarEl, calendar, lastId, formModal;
+        let calendarEl, calendar, lastId, formModal;
         $('#items_tab').on('show.bs.tab', function(e) {
             calendarEl = document.getElementById('dates-calendar');
             lastId = $(e.target).data('id');
@@ -211,7 +211,7 @@
                                       </label>`
                             });
                             $('#apply_multi_dates').html(html);
-                            $('#appy_all_modal').modal('show');
+                            $('#apply_all_modal').modal('show');
 
                         }
                     }
@@ -362,7 +362,6 @@
                     return true;
                 },
                 /*addItem:function () {
-                    console.log(this.person_types);
                     this.person_types.push(Object.assign([],this.person_type_item));
                 },
                 deleteItem:function (index) {
@@ -370,7 +369,7 @@
                 }*/
             },
             created: function() {
-                var me = this;
+                let me = this;
                 this.$nextTick(function() {
                     $('.has-daterangepicker').daterangepicker({
                             "locale": {
@@ -378,7 +377,6 @@
                             }
                         })
                         .on('apply.daterangepicker', function(e, picker) {
-                            console.log(picker);
                             me.form.start_date = picker.startDate.format('YYYY-MM-DD');
                             me.form.end_date = picker.endDate.format('YYYY-MM-DD');
                         });
@@ -398,19 +396,20 @@
         });
 
         function saveAllDates() {
-            var allEvent = calendar.getEvents();
-            var selectedDates = $('#apply_multi_dates input:checked');
-            var index = selectedDates.length;
+            let allEvent = calendar.getEvents();
+            let selectedDates = $('#apply_multi_dates input:checked');
+            let index = selectedDates.length;
             $.each(selectedDates, function(key, value) {
                 $.each(allEvent, function(key1, value1) {
 
                     if (value.id == value1.id) {
-                        console.log(value1);
-                        var activeChild = {
+                        let activeChild = {
                             ...value1.extendedProps
                         };
+                        activeChild.target_id = lastId;
+                        activeChild.start_date= moment(value1.start).format('YYYY-MM-DD');
+                        activeChild.end_date = moment(value1.start).format('YYYY-MM-DD')
                         activeChild.active = 1;
-                        console.log(activeChild);
                         $.ajax({
                             type: 'POST',
                             url: "{{ route('tour.admin.availability.store') }}",
@@ -419,10 +418,9 @@
                             error: function(data) {},
                             complete: function(data) {
                                 index -= 1;
-                                console.log(index);
                                 if (index == 0) {
                                     calendar.refetchEvents();
-                                    $('#appy_all_modal').modal('hide');
+                                    $('#apply_all_modal').modal('hide');
                                 }
                             }
                         });

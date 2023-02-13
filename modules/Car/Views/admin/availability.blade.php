@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="appy_all_modal" tabindex="-1" aria-labelledby="appy_all_modal" aria-hidden="true">
+    <div class="modal fade" id="apply_all_modal" tabindex="-1" aria-labelledby="apply_all_modal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -186,7 +186,7 @@
                                       </label>`
                             });
                             $('#apply_multi_dates').html(html);
-                            $('#appy_all_modal').modal('show');
+                            $('#apply_all_modal').modal('show');
 
                         }
                     }
@@ -223,7 +223,6 @@
 					var form = Object.assign({},info.event.extendedProps);
                     form.start_date = moment(info.event.start).format('YYYY-MM-DD');
                     form.end_date = moment(info.event.start).format('YYYY-MM-DD');
-                    console.log(form);
                     formModal.show(form);
                 },
                 eventRender: function (info) {
@@ -339,7 +338,6 @@
                     return true;
                 },
                 addItem:function () {
-                    console.log(this.person_types);
                     this.person_types.push(Object.assign({},this.person_type_item));
                 },
                 deleteItem:function (index) {
@@ -351,7 +349,6 @@
                 this.$nextTick(function () {
                     $('.has-daterangepicker').daterangepicker({ "locale": {"format": bookingCore.date_format}})
                      .on('apply.daterangepicker',function (e,picker) {
-                         console.log(picker);
                          me.form.start_date = picker.startDate.format('YYYY-MM-DD');
                          me.form.end_date = picker.endDate.format('YYYY-MM-DD');
                      });
@@ -377,12 +374,13 @@
                 $.each(allEvent, function(key1, value1) {
 
                     if (value.id == value1.id) {
-                        console.log(value1);
-                        var activeChild = {
+                        let activeChild = {
                             ...value1.extendedProps
                         };
+                        activeChild.target_id = lastId;
+                        activeChild.start_date= moment(value1.start).format('YYYY-MM-DD');
+                        activeChild.end_date = moment(value1.start).format('YYYY-MM-DD')
                         activeChild.active = 1;
-                        console.log(activeChild);
                         $.ajax({
                             type: 'POST',
                             url: "{{ route('car.admin.availability.store') }}",
@@ -391,10 +389,9 @@
                             error: function(data) {},
                             complete: function(data) {
                                 index -= 1;
-                                console.log(index);
                                 if (index == 0) {
                                     calendar.refetchEvents();
-                                    $('#appy_all_modal').modal('hide');
+                                    $('#apply_all_modal').modal('hide');
                                 }
                             }
                         });

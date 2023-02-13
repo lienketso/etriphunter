@@ -27,3 +27,4 @@ composer.lock
 /storage/bc.php
 /storage/framework/cache/*
 /storage/framework/views/*
+/storage/framework/sessions/*
