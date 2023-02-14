@@ -118,7 +118,7 @@ class AvailabilityController extends FrontendController
             $date['title'] = $date['price_html'];
             $date['start'] = $date['end'] = date('Y-m-d', $i);
             if ($tour->default_state) {
-                $date['active'] = 1;
+                $date['active'] = 0;
             } else {
                 $date['title'] = $date['event'] = __('Blocked');
                 $date['backgroundColor'] = 'orange';
