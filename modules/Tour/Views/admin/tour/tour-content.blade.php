@@ -72,6 +72,12 @@
                         <input type="text" name="video" class="form-control" value="{{$row->video}}" placeholder="{{__("Youtube link video")}}">
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Số ngày sẽ gửi mail nhắc khách hàng: </label>
+                        <input type="number" name="remind_number_date" class="form-control" value="{{$row->remind_number_date}}" placeholder="{{__("Số ngày sẽ gửi mail nhắc khách hàng")}}" min="1" max="10">
+                    </div>
+                </div>
             </div>
 
             @if(is_default_lang())

@@ -238,6 +238,7 @@ class TourController extends AdminController
         $row->commission = json_encode($request->input('commission'));
         $row->slots = $request->input('max_people');
         $row->number_of_days = 0;
+        $row->remind_number_date = $request->input('remind_number_date');
         $row->cat_hotel =  $request->input('cat_hotel');
         if(!is_null($request->input('departure_day'))){
             $row->departure_day = getInputDatefomat($request->input('departure_day'));
