@@ -14,7 +14,7 @@
                 <div class="col-md-9">
                     <div class="panel">
                         <div class="panel-title"><strong>{{ __('User Info')}}</strong>
-                            <a href="{{public_path('storage/file-import-test.xlsx')}}" target="_blank">File import mẫu</a> </div>
+                            <a href="{{asset('themes/file-import-test.xlsx')}}" target="_blank">File import mẫu</a> </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
