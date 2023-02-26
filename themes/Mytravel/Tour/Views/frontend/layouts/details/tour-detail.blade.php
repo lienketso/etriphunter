@@ -117,9 +117,12 @@
         @if($row->pickup)
         <li class="col-md-4 flex-horizontal-center list-group-item text-lh-sm mb-2 border-0">
             <i class="flaticon-star text-primary font-size-22 mr-2 d-block"></i>
-            <div class="ml-1 text-gray-1">Loại khách sạn: @for ($i = 0; $i < $row->cat_hotel; $i++)
-                <i class="fa fa-star" aria-hidden="true" style="color: #ffcd3c"></i>
-            @endfor </div>
+            <div class="ml-1 text-gray-1">Loại khách sạn:&nbsp;<?php $arr =  explode( ',', $row->cat_hotel );?>
+                @foreach ($arr as $node)
+                {{ $node}}
+                <i class="fa fa-star" aria-hidden="true" style="color: #ffcd3c"></i>&nbsp;&nbsp;
+           @endforeach
+        </div>
         </li>
     @endif
     </ul>
