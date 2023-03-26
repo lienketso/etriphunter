@@ -52,6 +52,7 @@ class BookingRequestController extends Controller
         $totalGuest = $input['persion']['adult'] + $input['persion']['child'] + $input['persion']['young'] + $input['persion']['baby'];
         $input['persion'] = json_encode($input['persion']);
         $input['location'] = json_encode($input['location']);
+        $input['conference_type'] = json_encode($input['conference_type']);
         $row = new $this->booking($input);
         $row->total_guest = intval($totalGuest);
         $row->save();

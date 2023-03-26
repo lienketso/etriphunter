@@ -161,6 +161,16 @@
                                                 <input type="number" min="0" value="{{old('persion[baby]',0)}}" name="persion[baby]" class="form-control" placeholder="Total of baby ">
                                             </div>
                                             <div class="w-100"></div>
+                                            <div class="col-sm-12 mb-4">
+                                                <label class="form-label">
+                                                  Loại
+                                                </label>
+                                                <p class="vehicle-checkbox">
+                                                    <input type="radio" name="conference_type" value="1" checked/> <span>Hội Thảo</span>
+                                                    <input type="radio" name="conference_type" value="2" /> <span>Team Building</span>
+                                                    <input type="radio" name="conference_type" value="3" /> <span>Gala Dinner</span>
+                                                </p>
+                                            </div>
                                             <div class="col">
                                                 <div class="mb-6">
                                                     <label class="form-label">
@@ -172,7 +182,6 @@
                                                 </div>
                                             </div>
                                             <div class="w-100"></div>
-
                                             <div class="col-sm-12 mb-4">
                                                 @php
                                                     $term_conditions = setting_item('booking_term_conditions');

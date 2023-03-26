@@ -14,7 +14,7 @@ class ChangeCatHotel extends Migration
     public function up()
     {
         Schema::table('bravo_tours', function (Blueprint $table) {
-            //
+            $table->string('cat_hotel',20)->change();
         });
     }
 
