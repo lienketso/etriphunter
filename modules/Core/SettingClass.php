@@ -31,6 +31,7 @@
 					'view'      => "Core::admin.settings.groups.general",
 					"keys"      => [
                         'site_title',
+                        'phone_contact',
                         'site_desc',
                         'site_favicon',
                         'home_page_id',
@@ -60,6 +61,7 @@
                         'footer_text_right',
                         'topbar_left_text',
                         'site_title',
+                        'phone_contact',
                         'site_desc',
                         'logo_id',
                         'page_contact_title',
