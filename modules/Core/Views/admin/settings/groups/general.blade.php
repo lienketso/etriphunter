@@ -13,6 +13,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="">Hotlines</label>
+                    <div class="form-controls">
+                        <input type="text" class="form-control" name="phone_contact" value="{{setting_item_with_lang('phone_contact',request()->query('lang'))}}">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label>{{__("Site Desc")}}</label>
                     <div class="form-controls">
                         <textarea name="site_desc" class="form-control" cols="30" rows="7">{{setting_item_with_lang('site_desc',request()->query('lang'))}}</textarea>
