@@ -31,7 +31,14 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(['email', 'password']);
+//        $credentials = request(['email', 'password']);
+
+        if(is_numeric(request('email'))){
+            $credentials = ['phone'=>request('email'),'password'=>request('password')];
+        }
+        elseif (filter_var(request('email'), FILTER_VALIDATE_EMAIL)) {
+            $credentials = ['email' => request('email'), 'password'=>request('password')];
+        }
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['status'=>0,'message' => __('Password is not correct'),'status'=>0], 401);
         }

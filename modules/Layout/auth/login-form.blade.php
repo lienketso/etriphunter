@@ -2,7 +2,7 @@
     <input type="hidden" name="redirect" value="{{request()->query('redirect')}}">
     @csrf
     <div class="form-group">
-        <input type="text" class="form-control" name="email" autocomplete="off" placeholder="{{__('Email address')}}">
+        <input type="text" class="form-control" name="email" autocomplete="off" placeholder="{{__('Email Or Phone')}}">
         <i class="input-icon icofont-mail"></i>
         <span class="invalid-feedback error error-email"></span>
     </div>
