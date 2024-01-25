@@ -79,7 +79,9 @@ class Tour extends Bookable
         'start_location_id',
         'departure_day',
         'muti_location',
-        'company_id'
+        'company_id',
+        'tour_code',
+        'cancel_rules'
     ];
     protected $slugField                          = 'slug';
     protected $slugFromField                      = 'title';

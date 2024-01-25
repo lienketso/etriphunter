@@ -239,6 +239,8 @@ class TourController extends AdminController
         $row->number_of_days = 0;
         $row->remind_number_date = $request->input('remind_number_date');
         $row->cat_hotel =  implode(",",$request->input('cat_hotel'));
+        $row->cancel_rules =  $request->input('cancel_rules');
+        $row->tour_code =  $request->input('tour_code');
         if(!is_null($request->input('departure_day'))){
             $row->departure_day = getInputDatefomat($request->input('departure_day'));
         }

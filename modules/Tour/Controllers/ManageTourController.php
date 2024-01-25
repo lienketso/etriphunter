@@ -243,7 +243,9 @@ class ManageTourController extends FrontendController
             'number_of_days',
             'start_location_id',
             'departure_day',
-            'muti_location'
+            'muti_location',
+            'tour_"code',
+            'cancel_rules'
 
         ], $request->input());
 //        $multiLocation = implode(',',$request->muti_location);

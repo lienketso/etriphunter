@@ -78,6 +78,10 @@
 </div>
 <div class="py-4 border-top border-bottom mb-4">
     <ul class="list-group list-group-borderless list-group-horizontal row">
+        <li class="col-md-4 flex-horizontal-center list-group-item text-lh-sm mb-2 border-0">
+            <i class="flaticon-global text-primary font-size-22 mr-2 d-block"></i>
+            <div class="ml-1 text-gray-1">{{ __("Product code") }}: <strong>{!! $row->tour_code !!}</strong></div>
+        </li>
         @if($row->duration)
             <li class="col-md-4 flex-horizontal-center list-group-item text-lh-sm mb-2 border-0">
                 <i class="flaticon-alarm text-primary font-size-22 mr-2 d-block"></i>
@@ -164,6 +168,18 @@
         </div>
     </div>
 @endif
+
+
+<div class="border-bottom  border-top py-4">
+    <h5 class="font-size-21 font-weight-bold text-dark mb-4">
+        {{__("Cancellation conditions")}}
+    </h5>
+    <div class="content-rules-cancel">
+        {!! $row->cancel_rule !!}
+    </div>
+</div>
+
+
 {{--@include('Tour::frontend.layouts.details.tour-faqs')--}}
 @includeIf("Hotel::frontend.layouts.details.hotel-surrounding")
 

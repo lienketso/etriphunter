@@ -6,6 +6,10 @@
             <input type="text" value="{!! clean($translation->title) !!}" placeholder="{{__("Tour title")}}" name="title" class="form-control">
         </div>
         <div class="form-group">
+            <label>Mã sản phẩm</label>
+            <input type="text" value="{!! $row->tour_code !!}" placeholder="Mã sản phẩm" name="tour_code" class="form-control">
+        </div>
+        <div class="form-group">
             <label class="control-label">{{__("Content")}}</label>
             <div class="">
                 <textarea name="content" class="d-none has-ckeditor" cols="30" rows="10">{{$translation->content}}</textarea>
@@ -15,6 +19,12 @@
             <label class="control-label">{{__("Description")}}</label>
             <div class="">
                 <textarea name="short_desc" class="form-control" cols="30" rows="4">{{$translation->short_desc}}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Điều kiện hoàn hủy</label>
+            <div class="">
+                <textarea name="cancel_rules" class="d-none has-ckeditor" cols="30" rows="10">{{$row->cancel_rules}}</textarea>
             </div>
         </div>
         @if(is_default_lang())
