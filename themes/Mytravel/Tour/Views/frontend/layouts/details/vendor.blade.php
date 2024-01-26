@@ -21,7 +21,7 @@ if(!empty($vendor_parent)){
         </div>
         <div class="media-body">
             <h4 class="media-heading"><a class="author-link" href="{{route('user.profile',['id'=>$vendor->user_name ?? $vendor->id])}}" target="_blank">
-                    {{(!is_null($vendor->company_id) ? $vendor->company->name : $vendor->business_name)}}</a>
+                    {{($vendor->company()->exists() ? $vendor->company->name : $vendor->business_name)}}</a>
                 @if($vendor->is_verified)
                     <img data-toggle="tooltip" data-placement="top" src="{{asset('icon/ico-vefified-1.svg')}}" title="{{__("Verified")}}" alt="{{__("Verified")}}">
                 @else
